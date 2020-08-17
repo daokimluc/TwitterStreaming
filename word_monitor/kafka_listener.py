@@ -1,5 +1,5 @@
 from tweepy import OAuthHandler, Stream, StreamListener
-from kafka import SimpleProducer, KafkaClient
+from kafka import KafkaProducer
 
 # Replace the values below with yours Access Token
 consumer_key='EL9bP53IKTBWsmNVkXeBaTLH0'
@@ -21,8 +21,7 @@ class KafkaListener(StreamListener):
 
 if __name__ == '__main__':
 	# Create a simple producer as Kafka client
-    kafka_client = KafkaClient("localhost:9092")  
-    producer = SimpleProducer(kafka_client)
+    producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
 
     l = KafkaListener()
     auth = OAuthHandler(consumer_key, consumer_secret)
