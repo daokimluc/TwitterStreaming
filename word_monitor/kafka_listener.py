@@ -13,7 +13,7 @@ class KafkaListener(StreamListener):
     """
     def on_data(self, data):
 	    # Send message to Kafka from the producer, "twitter-stream" is the topic
-        producer.send_messages("twitter-stream", data.encode("utf-8"))  
+        producer.send("twitterStream", data.encode("utf-8"))  
         return True
 
     def on_error(self, status):
