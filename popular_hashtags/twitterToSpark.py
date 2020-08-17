@@ -15,7 +15,7 @@ twitter_auth = requests_oauthlib.OAuth1(
 def streamTweets():
     url = 'https://stream.twitter.com/1.1/statuses/filter.json'
     stream_param = [('language', 'en'), ('locations',
-                                         '-140.99778, -139.06 ,48.30 ,-114.03 , 60.00'), ('track', '#')]
+                                         '-140.99778, 41.6751050889, -52.6480987209, 83.23324'), ('track', '#')]
     stream_url = url + '?' + \
         '&'.join([str(t[0]) + '=' + str(t[1]) for t in stream_param])
     # resp is a data stream received from the Twitter APIs
